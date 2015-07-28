@@ -36,21 +36,54 @@
 <aside style="margin-top:20px;">
     <p>Play:
         <select id="selected_json">
-            <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/king_henry_the_fifth.json"'>Henry VIII</option>
-            <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/romeo_and_juliet.json"'>Romeo and Juliet</option>
+            
+			<option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/a_midsummer-nights_dream.json"'>Midsummer-Nights_Dream</option>
+			<option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/alls_well_that_ends_well.json"'>Alls_Well</option>
+            <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/antony_and_cleopatra.json"'>Antony_And_Cleopatra</option>
+            <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/as_you_like_it.json"'>As_You_Like_It</option>
+            <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/coriolanus.json"'>Coriolanus</option>
+            <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/cymbeline.json"'>Cymbeline</option>
             <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/hamlet.json"'>Hamlet</option>
+            <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/king_lear.json"'>King_Lear</option>
+            <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/loves_labours_lost.json"'>Loves_Labours_Lost</option>
+            <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/macbeth.json"'>Macbeth</option>
+            <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/measure_for_measure.json"'>Measure_For_Measure</option>
+            <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/much_ado_about_nothing.json"'>Much_Ado</option>
+            <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/othello.json"'>Othello</option>
+            <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/pericles.json"'>Pericles</option>
+            <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/romeo_and_juliet.json"'>Romeo_And_Juliet</option>
+            <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/the_comedy_of_errors.json"'>The_Comedy_Of_Errors</option>
+            <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/the_life_and_death_of_king_john.json"'>King_John</option>
+            <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/the_merchant_of_venice.json"'>Merchant_Of_Venice</option>
+            <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/the_merry_wives_of_windsor.json"'>Merry_Wives_Of_Windsor</option>
+            <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/the_taming_of_the_shrew.json"'>Taming_Of_The_Shrew</option>
+            <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/the_tempest.json"'>Tempest</option>
+            <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/the_two_gentlemen_of_verona.json"'>Two_Gentlemen_Of_Verona</option>
+            <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/the_two_noble_kinsmen.json"'>Two_Noble_Kinsmen</option>
+            <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/the_winters_tale.json"'>Winters_Tale</option>
+            <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/timon_of_athens.json"'>Timon_Of_Athens</option>
+            <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/titus_andronicus.json"'>Titus_Andronicus</option>
+            <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/troilus_and_cressida.json"'>Troilus_And_Cressida</option>
+            <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/twelfth_night.json"'>Twelfth_Night</option>
+			<option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/king_richard_the_second.json"'>King_Richard_II</option>
+            <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/king_richard_the_third.json"'>King_Richard_III</option>
+            <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/the_first_part_of_king_henry_the_fourth.json"'>Henry_IV_i</option>
+			<option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/the_second_part_of_king_henry_the_fourth.json"'>Henry_IV_ii</option>
+			<option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/king_henry_the_fifth.json"'>King_Henry_V</option>
+			<option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/the_first_part_of_king_henry_the_sixth.json"'>Henry_VI_i</option>
+			<option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/henry_vi_ii.json"'>Henry_VI_ii</option>
+            <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/henry_vi_iii.json"'>Henry_VI_iii</option>
+
         </select>
-	
-	<i>      </i>
-	
-	Order:
+
+        <i>      </i> Order:
         <select id="order">
             <option value="name">by Name</option>
             <option value="count">by Frequency</option>
             <option value="group">by Cluster</option>
         </select>
 
-         
+
 
         <p>This application visualizes the degree to which characters in Shakespeare's plays appear together.
 
@@ -64,29 +97,28 @@
 <d3_plot></d3_plot>
 
 <script>
-
     function select_json(new_json) {
 
-    var margin = {
-            top: 120,
-            right: 0,
-            bottom: 10,
-            left: 160
-        },
-        width = 800,
-        height = 800;
+        var margin = {
+                top: 120,
+                right: 0,
+                bottom: 10,
+                left: 160
+            },
+            width = 800,
+            height = 800;
 
-    var x = d3.scale.ordinal().rangeBands([0, width]),
-        z = d3.scale.linear().domain([0, 4]).clamp(true),
-        c = d3.scale.category10().domain(d3.range(10));
+        var x = d3.scale.ordinal().rangeBands([0, width]),
+            z = d3.scale.linear().domain([0, 4]).clamp(true),
+            c = d3.scale.category10().domain(d3.range(10));
 
-    var svg = d3.select("d3_plot").append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-        .style("margin-left", "0px")
-        .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");	
-	
+        var svg = d3.select("d3_plot").append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .style("margin-left", "0px")
+            .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
         // Based on the user-selected input text above, make the appropriate api call and retrieve the json	
         d3.json(new_json, function(miserables) {
 
@@ -260,15 +292,15 @@
     }
 
     // set initial json selection
-    select_json("http://tdm-api-dev.elasticbeanstalk.com/api/json/king_henry_the_fifth.json");
+    select_json("http://tdm-api-dev.elasticbeanstalk.com/api/json/a_midsummer-nights_dream.json");
 
     // handle on click event
     d3.select('#selected_json').on('change', function() {
-			
-			// erase old image
-			d3.select("svg").remove(); 
-			
-			var new_json = eval(d3.select(this).property('value'));
-            select_json(new_json);
-        });
+
+        // erase old image
+        d3.select("svg").remove();
+
+        var new_json = eval(d3.select(this).property('value'));
+        select_json(new_json);
+    });
 </script>
