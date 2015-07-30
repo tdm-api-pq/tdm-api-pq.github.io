@@ -1,48 +1,129 @@
 <!DOCTYPE html>
 <html class="ocks-org do-not-copy">
-<meta charset="utf-8">
-<title>Dramatic Co-occurrence</title>
-<style>
-    @import url(../style.css?aea6f0a);
-    d3_plot {
-        font-size: 80%;
-    }
-    
-    body.svg {
-        margin-left: 0px;
-    }
-    
-    .background {
-        fill: #eee;
-    }
-    
-    line {
-        stroke: #fff;
-    }
-    
-    text.active {
-        fill: red;
-    }
-</style>
 
-<link type="text/css" rel="stylesheet" href="proquest-uikit-1.2.1/css/bootstrap.min.css"/>
-<link type="text/css" rel="stylesheet" href="proquest-uikit-1.2.1/css/uxframework-teal.css"/>
+<head>
 
-<script type="text/javascript" src="http://d3js.org/d3.v2.min.js?2.8.1"></script>
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <meta charset="utf-8">
+    <title>Dramatic Co-occurrence</title>
+    
+    <style>
+        @import url(../style.css?aea6f0a);
+        d3_plot {
+            font-size: 80%;
+        }
+        
+        body.svg {
+            margin-left: 0px;
+        }
+        
+        .background {
+            fill: #eee;
+        }
+        
+        line {
+            stroke: #fff;
+        }
+        
+        text.active {
+            fill: red;
+        }
+    </style>
+    
 
 
-<header>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="proquest-uikit-1.2.1/js/bootstrap.min.js" type="text/javascript"></script>
+    <link type="text/css" rel="stylesheet" href="proquest-uikit-1.2.1/css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="proquest-uikit-1.2.1/css/uxframework-purple.css"/>
+    <link type="text/css" rel="stylesheet" href="tdm-custom.css"/>
+        
+    <script type="text/javascript" src="http://d3js.org/d3.v2.min.js?2.8.1"></script>
+    <!--<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>-->
+
+</head>
+
+<body>
+
+<!-- Header -->
+
+<header role="banner" class="navbar navbar-inverse navbar-static-top" id="top">
+
+<!-- Navigation -->
+    <div class="navbar-header">
+
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#example-navbar-2">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="#" class="navbar-brand diagonal"><span class="uxf-icon uxf-chart-line"></span></a>
+        </li>
+        <li>
+          <div class="navbar-brand product-name">
+            <div class="pq-logo"></div>
+            <div class="header-logo"></div>
+              <a href="#">Text & Data Mining</a>
+            </div>
+        </li>
+      </ul>
+      
+    </div>
+
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation" id="example-navbar-2">
+    
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li class="dropdown">
+              <a data-toggle="dropdown" href="#" class="dropdown-toggle">My Account<span class="uxf-icon uxf-down-caret"></span></a>
+              
+              <ul class="dropdown-menu">
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 2</a></li>
+              </ul>
+            </li>
+            
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" title="Help"><span class="uxf-icon uxf-help-circle"></span></a>
+            
+              <ul class="dropdown-menu">
+                <li><a href="#" >Link 1</a></li>
+                <li><a href="#" >Link 2</a></li>
+              </ul>
+            </li>
+                
+        </ul>
+        
+        <!--<div class="nav navbar-nav navbar-below">
+        
+            <ul class="nav navbar-nav">
+              <li><a class="active" href="#" >Basic search</a></li>
+              <li><a href="#" >Advanced search</a></li>
+              <li><a href="#" >Search by number</a></li>
+            </ul>
+        
+        </div>-->
+      
+    </nav>
+
 </header>
 
-<h1>Character Co-occurrence in Shakespearean Drama</h1>
 
-<aside style="margin-top:20px;">
-    <p>Play:
-        <select id="selected_json">
-            
-	    <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/a_midsummer-nights_dream.json"'>Midsummer-Nights_Dream</option>
-	    <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/alls_well_that_ends_well.json"'>Alls_Well</option>
+<!-- Content -->
+
+
+
+<div class="row-offcanvas row-offcanvas-left">
+	<div id="sidebar" class="sidebar-offcanvas">
+	<div class="col-md-12">
+    
+    Play:
+        <select id="selected_json" class="form-group select-wrapper form-control">
+	    	<option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/a_midsummer-nights_dream.json"'>Midsummer-Nights_Dream</option>
+	    	<option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/alls_well_that_ends_well.json"'>Alls_Well</option>
             <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/antony_and_cleopatra.json"'>Antony_And_Cleopatra</option>
             <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/as_you_like_it.json"'>As_You_Like_It</option>
             <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/coriolanus.json"'>Coriolanus</option>
@@ -69,38 +150,84 @@
             <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/titus_andronicus.json"'>Titus_Andronicus</option>
             <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/troilus_and_cressida.json"'>Troilus_And_Cressida</option>
             <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/twelfth_night.json"'>Twelfth_Night</option>
-	    <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/king_richard_the_second.json"'>King_Richard_II</option>
+			<option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/king_richard_the_second.json"'>King_Richard_II</option>
             <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/king_richard_the_third.json"'>King_Richard_III</option>
             <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/the_first_part_of_king_henry_the_fourth.json"'>Henry_IV_i</option>
-	    <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/the_second_part_of_king_henry_the_fourth.json"'>Henry_IV_ii</option>
-	    <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/king_henry_the_fifth.json"'>King_Henry_V</option>
-	    <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/the_first_part_of_king_henry_the_sixth.json"'>Henry_VI_i</option>
-	    <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/henry_vi_ii.json"'>Henry_VI_ii</option>
+            <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/the_second_part_of_king_henry_the_fourth.json"'>Henry_IV_ii</option>
+            <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/king_henry_the_fifth.json"'>King_Henry_V</option>
+            <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/the_first_part_of_king_henry_the_sixth.json"'>Henry_VI_i</option>
+            <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/henry_vi_ii.json"'>Henry_VI_ii</option>
             <option value='"http://tdm-api-dev.elasticbeanstalk.com/api/json/henry_vi_iii.json"'>Henry_VI_iii</option>
-
         </select>
 
-        <i>      </i> Order:
-        <select id="order">
+        Order:
+        <select id="order" class="form-group select-wrapper form-control">
             <option value="name">by Name</option>
             <option value="count">by Frequency</option>
             <option value="group">by Cluster</option>
         </select>
+    
+        <p>This application visualizes the degree to which characters in Shakespeare's plays appear together.</p>
+
+            <p>Each colored cell represents two characters that appeared in the same scene, and darker cells indicate characters that co-occurred more frequently.</p>
+            
+            <p>Use the drop-down menus to select a different play, reorder the matrix, and explore the data.</p>
+            
+            <p>Built with data from ProQuest's Chadwyck Healey <a href="http://www.proquest.com/products-services/literature_online.html">Literature Online Collections</a>.</p>
+            
+	</div>
+  </div>
+
+      
+  <div id="main">
+      <div class="col-md-12">
+      
+      	<p class="visible-xs">
+        	<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
+        </p>
+
+		<h1>Character Co-occurrence in Shakespearean Drama</h1>
 
 
+        <d3_plot></d3_plot>
 
-        <p>This application visualizes the degree to which characters in Shakespeare's plays appear together.
 
-            <p>Each colored cell represents two characters that appeared in the same scene, and darker cells indicate characters that co-occurred more frequently.
+      </div>
+  </div>
+  
+</div><!--/row-offcanvas -->
+				
 
-                <p>Use the drop-down menus to select a different play, reorder the matrix, and explore the data.
 
-                    <p>Built with data from ProQuest's Chadwyck Healey <a href="http://www.proquest.com/products-services/literature_online.html">Literature Online Collections</a>.
-</aside>
+<footer id="footer">
 
-<d3_plot></d3_plot>
+  <div class="row-fluid">
+
+    <div class="col-sm-4 col-md-3 col-lg-2">
+      <h2 class="Logo img-responsive"></h2>
+    </div>
+
+    <div class="col-sm-8 col-md-9 col-lg-10">
+      <p>ProQuest is commited to empowering researchers and librarians around the world.<br>
+        Copyright &copy; 2015 ProQuest LLC</p>
+    </div>
+
+  </div>
+
+</footer>
+
+
+<!-- Menu Toggle Script -->
+<script>
+$(document).ready(function() {
+  $('[data-toggle=offcanvas]').click(function() {
+    $('.row-offcanvas').toggleClass('active');
+  });
+});
+</script>
 
 <script>
+
     function select_json(new_json) {
 
         var margin = {
@@ -307,4 +434,9 @@
         var new_json = eval(d3.select(this).property('value'));
         select_json(new_json);
     });
+	
+	
 </script>
+
+</body>
+</html>
